@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+/* ==========================================================================
+   DESIGN SYSTEM - RESTAURANT THEME
+   ========================================================================== */
+
+:root {
+  /* Brand Color Palette */
+  --primary: #1B2A4A;          /* Dark Navy Blue */
+  --primary-light: #002B5C;    /* Slightly lighter navy */
+  --accent: #E8651A;           /* Orange accent */
+  --accent-light: #FF7A2F;     /* Lighter warm orange */
+  --bg-warm: #FFF8F0;          /* Warm background */
+  --bg-cream: #FFFAF5;         /* Cream soft background */
+  --text-dark: #2D2D2D;        /* Deep charcoal for body text */
+  --text-light: #6B6B6B;       /* Muted gray */
+  --white: #FFFFFF;
+
+  /* Elevation Shadows */
+  --shadow-soft: 0 4px 20px rgba(27, 42, 74, 0.07);
+  --shadow-medium: 0 8px 30px rgba(27, 42, 74, 0.12);
+  --shadow-strong: 0 16px 40px rgba(27, 42, 74, 0.18);
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+  /* Border Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 50rem;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.6s ease-in-out;
+}
+
+/* ==========================================================================
+   BASE & RESET
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg-warm);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+/* Headings with Playfair Display */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-heading);
+  color: var(--primary);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+p, li, a, span, button, input, textarea, select {
+  font-family: var(--font-body);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-light);
+}
+
+/* ==========================================================================
+   UTILITY CLASSES (ADAPTED TO NEW PALETTE)
+   ========================================================================== */
+
+.is-size-10 {
+  font-size: 0.75rem !important;
+}
+
+.is-size-9 {
+  font-size: 0.875rem !important;
+}
+
+.is-size-6 {
+  font-size: 1.25rem !important;
+}
+
+.is-size-5 {
+  font-size: 1.5rem !important;
+}
+
+.is-size-4 {
+  font-size: 1.75rem !important;
+}
+
+.letra-menu {
+  padding: 0;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+.b2csinsa-mega-menu-0-x-triggerText {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.labelpromotions {
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: var(--accent);
+}
+
+.vtex-store-components-3-x-sellingPrice {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  line-height: 24px !important;
+  color: var(--primary) !important;
+}
+
+.vtex-product-summary-2-x-productBrandName {
+  font-size: 0.875rem;
+  color: var(--accent) !important;
+  font-weight: 600;
+  text-align: left;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.b2csinsa-mega-menu-0-x-categoryName {
+  font-size: 1rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.b2csinsa-mega-menu-0-x-categoryName:hover {
+  color: var(--accent);
+}
