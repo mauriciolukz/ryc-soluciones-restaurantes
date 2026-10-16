@@ -5,77 +5,7 @@ import axios from 'axios';
 /* ============================================================
    HERO PHRASES – Rotating content for the restaurant audience
    ============================================================ */
-const heroPhrasesData = [
-  /* {
-    emoji: "📍",
-    title: "Haz que tu publicidad destaque dentro de tu negocio",
-    highlight: "🎈",
-    body: "Presentamos nuestra pantalla publicitaria de 50 × 70 cm, ideal para mostrar promociones, productos, ofertas y contenido publicitario de forma llamativa y profesional.",
-    sub: "🏪 Ideal para restaurantes, tiendas y diferentes tipos de negocios.",
-    icon: "fa-tv",
-  },
-  {
-    emoji: "🔥",
-    title: "Tu publicidad puede llamar mucho más la atención",
-    highlight: "🎈",
-    body: "Presenta tus promociones, productos y ofertas de una manera moderna, llamativa y profesional.",
-    sub: "✨ Dale mayor protagonismo a lo que quieres vender y captura la atención de tus clientes desde el primer vistazo.",
-    icon: "fa-bullhorn",
-  },
-  {
-    emoji: "🎈",
-    title: "¡Hacé que tu menú destaque!",
-    highlight: "🎈",
-    body: "Dale una presentación diferente a tus almuerzos, platillos y promociones con nuestro exhibidor luminoso.",
-    features: [
-      "✨ Diseño moderno y elegante",
-      "💡 Iluminación que resalta tus productos",
-      "🍔 Ideal para restaurantes, cafeterías y comedores",
-    ],
-    icon: "fa-utensils",
-  },
-  {
-    emoji: "💡",
-    title: "Optimiza el trabajo de tu equipo con botones de llamada para restaurantes",
-    highlight: "🔔",
-    body: "Tus clientes pueden solicitar atención con solo presionar un botón, permitiendo que tu personal responda rápido y de manera organizada.",
-    features: [
-      "✅ Mejor atención",
-      "✅ Menor tiempo de espera",
-      "✅ Mayor eficiencia del personal",
-    ],
-    sub: "Tecnología que ayuda a tu restaurante a trabajar mejor.",
-    icon: "fa-bell-concierge",
-  },
-  {
-    emoji: "🚩",
-    title: "En un restaurante, la comunicación rápida hace la diferencia",
-    highlight: "💡",
-    body: "Con nuestro sistema de comunicación para restaurantes, tu equipo puede coordinarse de forma rápida, práctica y profesional, sin necesidad de gritar ni desplazarse constantemente.",
-    features: [
-      "✅ Mejor comunicación entre cocina y salón",
-      "✅ Mayor coordinación del personal",
-      "✅ Más rapidez en el servicio",
-      "✅ Ideal para restaurantes, hoteles y negocios gastronómicos",
-    ],
-    icon: "fa-walkie-talkie",
-  },
-  {
-    emoji: "💡",
-    title: "Mantén a tu equipo conectado y mejora la velocidad de tu negocio",
-    highlight: "🎧",
-    body: "Cuando cocina, meseros y personal están bien comunicados, el servicio es más rápido y eficiente.",
-    features: [
-      "✅ Comunicación rápida entre el equipo",
-      "✅ Mejor coordinación durante el servicio",
-      "✅ Menos desplazamientos innecesarios",
-      "✅ Atención más eficiente al cliente",
-      "✅ Ideal para restaurantes, hoteles y negocios de servicio",
-    ],
-    sub: "🎧 Sistema de comunicación para restaurantes",
-    icon: "fa-headset",
-  }, */
-];
+const heroPhrasesData = [];
 
 const ProductCatalog = () => {
   const { categoria } = useParams();
@@ -278,7 +208,7 @@ const ProductCatalog = () => {
           style={{
             display: "block",
             width: "100%",
-            height: isMobile ? "240px" : "auto",
+            height: isMobile ? "180px" : "auto",
             maxWidth: "100%",
             objectFit: isMobile  ? "inherit" : "contain",
             opacity: bannerTransition ? 1 : 0,

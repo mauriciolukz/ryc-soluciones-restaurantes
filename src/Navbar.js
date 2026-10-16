@@ -72,108 +72,46 @@ const Navbar = () => {
       }}
     >
       {/* ===== ROW 1: Logo + Search ===== */}
-      <div
-        style={{
-          background: "linear-gradient(135deg, #1B2A4A 0%, #002B5C 100%)",
-          padding: isMobile ? "12px 16px" : "14px 0",
-        }}
-      >
+
+      {/* ===== ROW 1: Logo solo en móvil ===== */}
+      {isMobile && (
         <div
-          className="container"
           style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "20px",
+            background: "linear-gradient(135deg, #1B2A4A 0%, #002B5C 100%)",
+            padding: "12px 16px",
           }}
         >
-          <Link
-            to="/"
+          <div
+            className="container"
             style={{
               display: "flex",
               alignItems: "center",
-              textDecoration: "none",
-              flexShrink: 0,
+              justifyContent: "flex-start",
             }}
           >
-            <img
-              src={`${process.env.PUBLIC_URL}/logo-ryc-restaurantes.jpg`}
-              alt="RyC Restaurantes"
-              style={{
-                width: isMobile ? 100 : 100,
-                height: isMobile ? 100 : 100,
-                borderRadius: "14px",
-                border: "2px solid rgba(255,255,255,0.3)",
-                objectFit: "cover",
-                transition: "transform 0.3s ease, border-color 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "scale(1.05)";
-                e.currentTarget.style.borderColor = "#E8651A";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "scale(1)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)";
-              }}
-            />
-          </Link>
-
-          {/* Search Bar */}
-          {/* <form
-            onSubmit={handleSearchSubmit}
-            style={{
-              flexGrow: 1,
-              maxWidth: isMobile ? "100%" : "500px",
-              marginLeft: isMobile ? 0 : "auto",
-              marginRight: isMobile ? 0 : "auto",
-            }}
-          >
-            <div
+            <Link
+              to="/"
               style={{
                 display: "flex",
-                borderRadius: "50px",
-                overflow: "hidden",
-                boxShadow: "0 2px 12px rgba(0,0,0,0.15)",
+                alignItems: "center",
+                textDecoration: "none",
               }}
             >
-              <input
-                type="search"
-                placeholder="Buscar productos para tu restaurante..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+              <img
+                src={`${process.env.PUBLIC_URL}/logo-ryc-restaurantes.jpg`}
+                alt="RyC Restaurantes"
                 style={{
-                  flex: isMobile ? "1 1 0" : "0 1 360px",
-                  minWidth: 0,
-                  width: "100%",
-                  border: "none",
-                  padding: "12px 14px",
-                  fontSize: "0.95rem",
-                  outline: "none",
-                  fontFamily: "'Inter', sans-serif",
-                  backgroundColor: "rgba(255,255,255,0.95)",
-                  boxSizing: "border-box",
+                  width: 100,
+                  height: 100,
+                  borderRadius: "14px",
+                  border: "2px solid rgba(255,255,255,0.3)",
+                  objectFit: "cover",
                 }}
               />
-              <button
-                type="submit"
-                style={{
-                  border: "none",
-                  backgroundColor: "#E8651A",
-                  color: "white",
-                  padding: "12px 20px",
-                  cursor: "pointer",
-                  transition: "background-color 0.3s ease",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#FF7A2F")}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#E8651A")}
-              >
-                <i className="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </div>
-          </form> */}
+            </Link>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* ===== ROW 2: Navigation ===== */}
       <div
@@ -240,8 +178,31 @@ const Navbar = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
+                 gap: "12px",
+                  width: "100%",
               }}
             >
+              <Link
+  to="/"
+  style={{
+    display: "flex",
+    alignItems: "center",
+    flexShrink: 0,
+    textDecoration: "none",
+  }}
+>
+  <img
+    src={`${process.env.PUBLIC_URL}/logo-ryc-restaurantes.jpg`}
+    alt="RyC Restaurantes"
+    style={{
+      width: "clamp(42px, 4vw, 56px)",
+      height: "clamp(42px, 4vw, 56px)",
+      borderRadius: "10px",
+      border: "2px solid rgba(255,255,255,0.3)",
+      objectFit: "cover",
+    }}
+  />
+</Link>
               <button
                 onClick={() => offcanvasInstance.current?.show()}
                 style={{
@@ -271,7 +232,7 @@ const Navbar = () => {
                 <span>Todas las categorías</span>
               </button>
 
-              <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+              <div style={{ display: "flex", gap: "12px", alignItems: "center" ,marginLeft: "auto",flexShrink: 0}}>
                 <Link
                   to="/productos/Restaurante"
                   style={{
