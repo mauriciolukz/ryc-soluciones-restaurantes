@@ -155,3 +155,86 @@ a:hover {
 .b2csinsa-mega-menu-0-x-categoryName:hover {
   color: var(--accent);
 }
+
+
+/* ==========================================================================
+   NAVBAR MÓVIL (hasta 990px)
+   Logo con tamaño fijo, pegado arriba-izquierda de la pantalla.
+   Para ajustar: width = tamaño del logo, top = separación de arriba.
+   ========================================================================== */
+
+.navbar-mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  position: static;              /* así el logo se ancla a la barra completa (nav sticky) */
+  min-height: 48px;
+  width: 100%;
+}
+
+.navbar-mobile-logo {
+  position: absolute;
+  top: -6px;                      /* separación de arriba */
+  left: 0;                       /* pegado a la izquierda de la pantalla */
+  width: 200px;                  /* tamaño fijo del logo */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 0 0 34px 0;     /* curva inferior derecha */
+  z-index: 2;
+  text-decoration: none;
+}
+
+.navbar-mobile-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Botón Contáctanos */
+.navbar-mobile-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #f36b16;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 8px 13px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-left: auto;
+  z-index: 3;
+}
+
+/* Menú hamburguesa */
+.navbar-mobile-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 23px;
+  padding: 0;
+  width: 26px;
+  height: 36px;
+  z-index: 3;
+  flex-shrink: 0;
+}
+
+/* Pantallas muy angostas: logo un poco más pequeño para no chocar con el botón */
+@media (max-width: 340px) {
+  .navbar-mobile-logo {
+    width: 170px;
+  }
+
+  .navbar-mobile-contact {
+    padding: 7px 10px;
+    font-size: 11px;
+  }
+}

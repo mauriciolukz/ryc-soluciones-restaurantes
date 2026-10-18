@@ -73,46 +73,6 @@ const Navbar = () => {
     >
       {/* ===== ROW 1: Logo + Search ===== */}
 
-      {/* ===== ROW 1: Logo solo en móvil ===== */}
-      {isMobile && (
-        <div
-          style={{
-            background: "linear-gradient(135deg, #1B2A4A 0%, #002B5C 100%)",
-            padding: "12px 16px",
-          }}
-        >
-          <div
-            className="container"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-start",
-            }}
-          >
-            <Link
-              to="/"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                textDecoration: "none",
-              }}
-            >
-              <img
-                src={`${process.env.PUBLIC_URL}/logo-ryc-restaurantes.jpg`}
-                alt="RyC Restaurantes"
-                style={{
-                  width: 100,
-                  height: 100,
-                  borderRadius: "14px",
-                  border: "2px solid rgba(255,255,255,0.3)",
-                  objectFit: "cover",
-                }}
-              />
-            </Link>
-          </div>
-        </div>
-      )}
-
       {/* ===== ROW 2: Navigation ===== */}
       <div
         style={{
@@ -121,55 +81,39 @@ const Navbar = () => {
           padding: isMobile ? "10px 16px" : "8px 0",
         }}
       >
-        <div className="container">
+        <div className="container" style={{
+            paddingLeft: isMobile ? "0" : undefined,
+            paddingRight: isMobile ? "0" : undefined,
+          }}>
           {/* Mobile Layout */}
           {isMobile && (
-            <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
-                <button
-                  onClick={() => offcanvasInstance.current?.show()}
-                  style={{
-                    backgroundColor: "rgba(255,255,255,0.1)",
-                    border: "1px solid rgba(255,255,255,0.2)",
-                    borderRadius: "12px",
-                    padding: "10px 14px",
-                    color: "#fff",
-                    cursor: "pointer",
-                    transition: "all 0.3s ease",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    fontSize: "0.85rem",
-                  }}
-                >
-                  <i className="fas fa-bars"></i>
-                  <span>Menú</span>
-                </button>
+            <div className="navbar-mobile-header">
+              <Link to="/" className="navbar-mobile-logo">
+                <img
+                  src={`${process.env.PUBLIC_URL}/logo-ryc-restaurantes-new.png`}
+                  alt="RyC Restaurantes"
+                />
+              </Link>
 
-                <button
-                  className="btn btn-sm"
-                  data-bs-toggle="modal"
-                  data-bs-target="#contactModal"
-                  style={{
-                    backgroundColor: "#E8651A",
-                    color: "white",
-                    border: "none",
-                    borderRadius: "25px",
-                    padding: "8px 18px",
-                    fontSize: "0.85rem",
-                    fontWeight: "600",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "6px",
-                    marginLeft: "auto",
-                    transition: "all 0.3s ease",
-                  }}
-                >
-                  <i className="fa-solid fa-location-dot"></i> Contáctanos
-                </button>
-              </div>
+              <button
+                className="navbar-mobile-contact"
+                data-bs-toggle="modal"
+                data-bs-target="#contactModal"
+              >
+                <i className="fa-solid fa-location-dot"></i>
+                <span>Contáctanos</span>
+              </button>
+
+              <button
+                className="navbar-mobile-menu"
+                aria-label="Abrir menú"
+                onClick={() => offcanvasInstance.current?.show()}
+              >
+                <i className="fas fa-bars"></i>
+              </button>
             </div>
           )}
+
 
           {/* Desktop Layout */}
           {!isMobile && (

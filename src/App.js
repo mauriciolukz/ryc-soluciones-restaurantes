@@ -11,7 +11,7 @@ import ProductDetail from "./ProductDetail";
 
 function App() {
   return (
-    <Router basename="/restaurante">
+    <Router>
       <div className="d-flex flex-column min-vh-100" style={{ backgroundColor: "#FFFFFF" }}>
         {/* Navbar */}
         <Navbar />

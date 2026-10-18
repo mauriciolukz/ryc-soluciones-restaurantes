@@ -413,11 +413,10 @@ const ProductCatalog = () => {
             alignItems: "center",
             justifyContent: "center",
             gap: "16px",
-            marginBottom: "32px",
-            marginTop: "32px",
+            marginBottom: isMobile ? "14px" : "32px",
+            marginTop: isMobile ? "18px" : "32px",
           }}
         >
-          <div style={{ height: "2px", flex: 1, maxWidth: "80px", background: "linear-gradient(to right, transparent, #E8651A)" }}></div>
           <h2
             style={{
               fontFamily: "'Playfair Display', serif",
@@ -431,13 +430,12 @@ const ProductCatalog = () => {
             <i className="fas fa-utensils" style={{ color: "#E8651A", marginRight: "10px", fontSize: "0.9em" }}></i>
             {searchQuery ? `Resultados: "${searchQuery}"` : "Nuestros Productos"}
           </h2>
-          <div style={{ height: "2px", flex: 1, maxWidth: "80px", background: "linear-gradient(to left, transparent, #E8651A)" }}></div>
         </div>
 
         {/* Product Grid */}
         <div className="row">
           {products.map((product) => (
-            <div className="col-6 col-md-4 col-lg-3 mb-4" key={product.id}>
+            <div className={`col-12 col-md-4 col-lg-3 ${isMobile ? "mb-3" : "mb-4"}`} key={product.id}>
               <div
                 style={{
                   backgroundColor: "white",
@@ -465,19 +463,19 @@ const ProductCatalog = () => {
                 {/* Product Image */}
                 <div
                   style={{
-                    padding: "20px",
+                    padding: isMobile ? "8px" : "20px",
                     backgroundColor: "#FEFCF9",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    minHeight: isMobile ? "150px" : "200px",
+                    minHeight: isMobile ? "110px" : "200px",
                   }}
                 >
                   <img
                     src={product.image}
                     alt={product.name}
                     style={{
-                      maxHeight: `${getImageSize()}px`,
+                      maxHeight: isMobile ? "200px" : `${getImageSize()}px`,
                       maxWidth: "100%",
                       objectFit: "contain",
                       transition: "transform 0.3s ease",
@@ -490,9 +488,9 @@ const ProductCatalog = () => {
                   <div
                     style={{
                       textTransform: "uppercase",
-                      fontSize: "0.7rem",
-                      color: "#E8651A",
-                      fontWeight: 600,
+                      fontSize: "0.9rem",
+                      color: "#1B2A4A",
+                      fontWeight: 1000,
                       letterSpacing: "1px",
                       marginBottom: "6px",
                     }}
@@ -502,22 +500,22 @@ const ProductCatalog = () => {
 
                   <h6
                     style={{
+                      textTransform: "uppercase",
+                      fontSize: "0.9rem",
                       color: "#1B2A4A",
-                      fontWeight: 600,
-                      fontSize: isMobile ? "0.85rem" : "0.95rem",
-                      lineHeight: 1.4,
-                      marginBottom: "10px",
-                      fontFamily: "'Playfair Display', serif",
+                      fontWeight: 1000,
+                      letterSpacing: "1px",
+                      marginBottom: "6px",
                     }}
                   >
-                    {product.name}
+                    {product.name}f
                   </h6>
 
-                  <div style={{ color: "#1B2A4A", fontWeight: 700, fontSize: isMobile ? "1.05rem" : "1.2rem" }}>
+                  <div style={{ color: "#E8651A", fontWeight: 700, fontSize: isMobile ? "1.05rem" : "1.2rem" }}>
                     <span
                       style={{
                         textDecoration: product.on_clearance === 1 ? "line-through" : "none",
-                        color: product.on_clearance === 1 ? "#999" : "#1B2A4A",
+                        color: product.on_clearance === 1 ? "#999" : "#E8651A",
                         fontSize: product.on_clearance === 1 ? "0.9rem" : undefined,
                       }}
                     >
@@ -550,31 +548,30 @@ const ProductCatalog = () => {
 
                 {/* Actions */}
                 <div
-                  style={{
-                    padding: isMobile ? "10px 14px" : "14px 20px",
-                    borderTop: "1px solid #f0ebe5",
+                                  style={{
                     display: "flex",
+                    flexDirection: "column",
                     alignItems: "center",
-                    justifyContent: "space-between",
-                    gap: "10px",
+                    gap: "8px",
+                    width: "100%",
                   }}
                 >
                   <button
                     onClick={() => navigate(`/producto/${product.id}`)}
                     style={{
-                      backgroundColor: "#E8651A",
-                      color: "white",
-                      border: "none",
-                      borderRadius: "25px",
-                      padding: isMobile ? "7px 14px" : "8px 22px",
-                      fontWeight: 600,
-                      textTransform: "uppercase",
-                      fontSize: isMobile ? "0.7rem" : "0.8rem",
-                      letterSpacing: "0.5px",
-                      transition: "all 0.3s ease",
-                      cursor: "pointer",
-                      flexGrow: 1,
-                    }}
+                        backgroundColor: "#E8651A",
+                        color: "white",
+                        border: "none",
+                        borderRadius: "25px",
+                        padding: isMobile ? "7px 14px" : "8px 22px",
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                        fontSize: isMobile ? "0.7rem" : "0.8rem",
+                        letterSpacing: "0.5px",
+                        transition: "all 0.3s ease",
+                        cursor: "pointer",
+                        width: "100%",
+                      }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = "#FF7A2F";
                       e.currentTarget.style.transform = "translateY(-2px)";
@@ -584,9 +581,8 @@ const ProductCatalog = () => {
                       e.currentTarget.style.transform = "translateY(0)";
                     }}
                   >
-                    Detalles
+                    Ver producto
                   </button>
-
                   <a
                     href={(() => {
                       const phone = "50577005446";
