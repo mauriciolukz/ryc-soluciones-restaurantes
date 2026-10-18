@@ -208,7 +208,7 @@ const ProductCatalog = () => {
           style={{
             display: "block",
             width: "100%",
-            height: isMobile ? "180px" : "auto",
+            height: isMobile ? "150px" : "auto",
             maxWidth: "100%",
             objectFit: isMobile  ? "inherit" : "contain",
             opacity: bannerTransition ? 1 : 0,
