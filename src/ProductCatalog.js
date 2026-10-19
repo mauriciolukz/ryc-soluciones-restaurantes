@@ -508,7 +508,7 @@ const ProductCatalog = () => {
                       marginBottom: "6px",
                     }}
                   >
-                    {product.name}f
+                    {product.name}
                   </h6>
 
                   <div style={{ color: "#E8651A", fontWeight: 700, fontSize: isMobile ? "1.05rem" : "1.2rem" }}>
