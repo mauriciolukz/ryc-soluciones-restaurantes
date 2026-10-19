@@ -585,8 +585,8 @@ const ProductCatalog = () => {
                   </button>
                   <a
                     href={(() => {
-                      const phone = "50577005446";
-                      const text = `Hola+estoy+interesado+en+este+producto:%0D%0A%0D%0A*${encodeURIComponent(product.name)}*%0A*Precio:*%20${encodeURIComponent(product.price)}%0A*URL:*%20https%3A%2F%2Fryc-soluciones-nicaragua.com%2Fproducto%2F${encodeURIComponent(product.id)}`;
+                      const phone = "50585634943";
+                      const text = `Hola+estoy+interesado+en+este+producto:%0D%0A%0D%0A*${encodeURIComponent(product.name)}*%0A*Precio:*%20${encodeURIComponent(product.price)}%0A*URL:*%20https%3A%2F%2Frestaurante.ryc-soluciones-nicaragua.com%2Fproducto%2F${encodeURIComponent(product.id)}`;
                       const isMobileDevice = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
                       return isMobileDevice
                         ? `https://wa.me/${phone}?text=${text}`
