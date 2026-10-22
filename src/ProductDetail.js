@@ -8,7 +8,16 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState("");
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const CURRENCY = "C$";
+  const formatPrice = (value) => {
+    const num = parseFloat(value);
+    if (isNaN(num)) return "C$ 0";
+    const formatted = new Intl.NumberFormat("es-NI", {
+      style: "decimal",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(num);
+    return `C$ ${formatted}`;
+  };
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -288,11 +297,7 @@ const ProductDetail = () => {
                       fontSize: product.on_clearance === 1 ? "1.3rem" : undefined,
                     }}
                   >
-                    {CURRENCY}{" "}
-                    {parseFloat(product.price).toLocaleString("en-US", {
-                      minimumFractionDigits: 0,
-                      maximumFractionDigits: 0,
-                    })}
+                    {formatPrice(product.price)}
                   </span>
 
                   {product.on_clearance === 1 && (
@@ -305,11 +310,7 @@ const ProductDetail = () => {
                         marginTop: "4px",
                       }}
                     >
-                      {CURRENCY}{" "}
-                      {parseFloat(product.clearance_price).toLocaleString("en-US", {
-                        minimumFractionDigits: 0,
-                        maximumFractionDigits: 0,
-                      })}
+                      {formatPrice(product.clearance_price)}
                     </span>
                   )}
                 </div>

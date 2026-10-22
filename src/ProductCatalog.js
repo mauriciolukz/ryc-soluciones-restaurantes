@@ -21,7 +21,16 @@ const ProductCatalog = () => {
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('Restaurante');
-  const CURRENCY = "C$";
+  const formatPrice = (value) => {
+    const num = parseFloat(value);
+    if (isNaN(num)) return "C$ 0";
+    const formatted = new Intl.NumberFormat("es-NI", {
+      style: "decimal",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(num);
+    return `C$ ${formatted}`;
+  };
   const [bannerTransition, setBannerTransition] = useState(true);
   const [activePhraseIndex, setActivePhraseIndex] = useState(0);
 
@@ -519,11 +528,7 @@ const ProductCatalog = () => {
                         fontSize: product.on_clearance === 1 ? "0.9rem" : undefined,
                       }}
                     >
-                      {CURRENCY}{" "}
-                      {parseFloat(product.price).toLocaleString("en-US", {
-                        minimumFractionDigits: 0,
-                        maximumFractionDigits: 0,
-                      })}
+                      {formatPrice(product.price)}
                     </span>
 
                     {product.on_clearance === 1 && (
@@ -536,11 +541,7 @@ const ProductCatalog = () => {
                           marginTop: "2px",
                         }}
                       >
-                        {CURRENCY}{" "}
-                        {parseFloat(product.clearance_price).toLocaleString("en-US", {
-                          minimumFractionDigits: 0,
-                          maximumFractionDigits: 0,
-                        })}
+                        {formatPrice(product.clearance_price)}
                       </span>
                     )}
                   </div>
